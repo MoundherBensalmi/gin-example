@@ -2,7 +2,7 @@ package database
 
 import (
 	"MBFacto/config"
-	"MBFacto/helpers/log_colors"
+	"MBFacto/utils/log_colors"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -12,16 +12,15 @@ import (
 var db *gorm.DB
 
 func ConnectToDB() {
-	cfg := config.Get()
 	maxRetries := 3
 	var err error
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		cfg.Database.Username,
-		cfg.Database.Password,
-		cfg.Database.Host,
-		cfg.Database.Port,
-		cfg.Database.Name,
+		config.Cfg.Database.Username,
+		config.Cfg.Database.Password,
+		config.Cfg.Database.Host,
+		config.Cfg.Database.Port,
+		config.Cfg.Database.Name,
 	)
 
 	for i := 0; i < maxRetries; i++ {

@@ -4,7 +4,7 @@ import (
 	"MBFacto/app/models"
 	"MBFacto/config"
 	"MBFacto/database"
-	"MBFacto/helpers/log_colors"
+	"MBFacto/utils/log_colors"
 	"flag"
 	"log"
 )
