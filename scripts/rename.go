@@ -31,9 +31,8 @@ func main() {
 	}
 }
 
-// Reads a file, replaces occurrences, and writes back if changes were made
 func replaceInFile(path string) {
-	content, err := os.ReadFile(path) // Use os.ReadFile instead of ioutil.ReadFile
+	content, err := os.ReadFile(path)
 	if err != nil {
 		fmt.Printf("Failed to read file: %s, Error: %v\n", path, err)
 		return
@@ -44,7 +43,7 @@ func replaceInFile(path string) {
 		return // No changes, skip writing
 	}
 
-	err = os.WriteFile(path, []byte(newContent), 0644) // Use os.WriteFile instead of ioutil.WriteFile
+	err = os.WriteFile(path, []byte(newContent), 0644)
 	if err != nil {
 		fmt.Printf("Failed to write file: %s, Error: %v\n", path, err)
 		return
